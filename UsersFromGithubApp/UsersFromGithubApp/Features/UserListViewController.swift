@@ -16,7 +16,6 @@ class UserListViewController: UIViewController {
     
     var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
-        tableView.backgroundColor = .red
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.rowHeight = 64
         
@@ -50,7 +49,8 @@ class UserListViewController: UIViewController {
     }
     
     private func setupView() {
-        view.backgroundColor = .green
+        title = "Github Users"
+        view.backgroundColor = .systemBackground
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -107,14 +107,7 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
         
         if section == .loader {
             print("load new data..")
-            
             viewModel.loadItems()
-            
-//            fetchData { [weak self] success in
-//                if !success {
-//                    self?.hideBottomLoader()
-//                }
-//            }
         }
     }
     
